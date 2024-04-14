@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            display: grid;
+            place-content: center;
+            height: 100vh; 
+        }
+        .profile_card{
+            background:black;
+            text-align: center;
+            color: white;
+            width: 345px; 
+            height: 425px; 
+            border-radius: 20px; 
+            box-shadow: 0 12px 13px rgba(0, 0, 0, 0.2);
+            padding:3px;
+        }
+
+        .img{
+            border-radius: 50%;
+            margin-top: 24px;
+            width: 130px;
+            height: 125px;
+        }
+
+        .name{
+            padding-top: 5px;
+            font-size: 25px;
+        }
+
+        .occupation{
+            font-size: 19px;
+        }
+
+        .description{
+            font-size: 16px;
+            margin-left: 48px;
+            margin-right: 48px;
+            line-height: 25px;
+        }
+
+        .contact_info{
+            font-size: 16px;
+
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="profile_card">
+        <img src="images.jpg" alt="profile image" class="img">
+        <h1 class="name">Nujhut Tanzim</h1>
+        <h3 class="occupation">Web Developer</h3>
+        <div class="description">
+            <p>Creates Modern Flat Designs & Responsive Websites and Webpages</p>
+        </div>
+        <div class="contact-info">
+            <p class="email">Email: nujhattanzim@gmail.com</p>
+            <p class="phn">Phone: 01714250255</p>
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+    <div class="container mt-5 w-50">
+        <div class="row">
+            
+            <div class="col">
+              <h2 class="mb-4 mt-5">Simple Calculator</h2>
+            </div>
+        </div>    
+        <div class="row ">
+         
+            <div class="col">
+              <label for="number1">Number1</label> 
+              <input type="text" id="number1" class="form-control mt-3" placeholder="First Number" aria-label="First Number">
+            </div>
+            <div class="col">
+                <label for="operation">Operation</label> 
+                <select class="form-select mt-3" id="operation" aria-label="Default select example">
+                    <option value="Addition">addition (+) </option>
+                    <option value="Subtraction">subtraction (-) </option>
+                    <option value="Multiplication">multiplication (*) </option>\
+                    <option value="Division">division (/) </option>
+                  </select>
+            </div>
+            <div class="col">
+              <label for="number2">Number2</label> 
+              <input type="text" id="number2" class="form-control mt-3" placeholder="Second Number" aria-label="Second Number">
+            </div>
+         
+
+          </div>
+
+          <div class="row">
+            
+            <div class="col">
+              <button type="button" id="btn" class="btn btn-primary mt-3" onclick="calculation()">Calculate</button>
+            </div>
+        </div>
+        <div class="row mt-3">
+          
+          <div class="col">
+            <div class="alert alert-primary d-none" id="result" role="alert">
+                <span id="resultLabel">Result: </span>
+                <span id="result1"></span>
+            </div>
+          </div>
+          
+      </div> 
+    </div>
+    
+
+    <script src="js/bootstrap.bundle.js"></script>
+    <script>
+    function calculation() {
+        let number1 = document.getElementById('number1').value.trim();
+        let number2 = document.getElementById('number2').value.trim();
+        let op = document.getElementById('operation').value;
+        let result = document.getElementById('result');
+        let result1 = document.getElementById('result1');
+        let Label=document.getElementById('resultLabel');
+
+        result.classList.add('d-none');
+        result.classList.remove('alert', 'alert-primary', 'alert-danger');
+        Label.classList.add('d-none');
+
+        if (number1 === "" || number2 === "") {
+            result.classList.remove('d-none');
+            result.classList.add('alert', 'alert-danger');
+            result1.innerText = "You must enter Number1 and Number2.";
+        }
+        else {
+            number1 = Number(number1);
+            number2 = Number(number2);
+
+            if (isNaN(number1) || isNaN(number2)) {
+                result.classList.remove('d-none');
+                result.classList.add('alert', 'alert-danger');
+                result1.innerText = "Invalid. Please enter valid numbers.";
+            } 
+            else {
+                if (op == 'Addition') {
+                    result.classList.remove('d-none');
+                    result.classList.add('alert', 'alert-primary');
+                    Label.classList.remove('d-none');
+                    Label.innerText ="Result:";
+                    result1.innerText = number1 + number2;
+                } else if (op == 'Subtraction') {
+                    result.classList.remove('d-none');
+                    result.classList.add('alert', 'alert-primary');
+                    Label.classList.remove('d-none');
+                    Label.innerText ="Result:";
+                    result1.innerText = number1 - number2;
+                } else if (op == 'Multiplication') {
+                    result.classList.remove('d-none');
+                    result.classList.add('alert', 'alert-primary');
+                    Label.classList.remove('d-none');
+                    Label.innerText ="Result:";
+                    result1.innerText = number1 * number2;
+                } else if (op == 'Division') {
+                    if (number2 == 0) {
+                        result.classList.remove('d-none');
+                        result.classList.add('alert', 'alert-danger');
+                        result1.innerText = "Division by zero is not allowed";
+                    } else {
+                        result.classList.remove('d-none');
+                        result.classList.add('alert', 'alert-primary');
+                        Label.classList.remove('d-none');
+                        Label.innerText ="Result:";
+                        result1.innerText = number1 / number2;
+                    }
+                } else {
+                    result.classList.remove('d-none');
+                        result.classList.add('alert', 'alert-danger');
+                    result1.innerText = "Invalid operation";
+                }
+            }
+        }
+    }
+
+    </script>
+</body>
+</html>
